@@ -8,7 +8,7 @@ import './App.css';
 function Header() {
 	return (
 		<header>
-			<h1 >Tasks - ReactJS</h1>
+			<h1 >Tasks List - ReactJS</h1>
 		</header>
 	)
 }
@@ -16,9 +16,7 @@ function Header() {
 function Footer() {
 	return (
 		<footer>
-			<p className="text-muted footer-text">Made with ReactJS and Boostrap 4 by
-				<a href="https://jofranmtz.com/">jofranmtz</a>
-			</p>
+			<p className="text-muted footer-text">Made with ReactJS and Boostrap 4 by <a href="https://jofranmtz.com/">jofranmtz</a></p>
 		</footer>
 	)
 }
