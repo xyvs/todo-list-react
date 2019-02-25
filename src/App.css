@@ -1,0 +1,27 @@
+a {
+	color: #0f0f0f;
+}
+
+a:hover {
+	color: #4c4c4c;
+	text-decoration: none;
+}
+
+footer {
+	margin-top: 2em;
+}
+
+.app {
+	margin: 0 auto;
+	margin-top: 5em;
+	max-width: 500px;
+	text-align: center;
+}
+
+.task-list {
+	padding: 1em 0;
+}
+
+.list-group-item {
+	padding: .4em 0;
+}
