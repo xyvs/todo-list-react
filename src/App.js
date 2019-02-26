@@ -25,13 +25,22 @@ function Footer() {
 // Render components //
 ///////////////////////
 
-function ItemList(props){
+function ItemList(props) {
 	return (
 		<ul className="task-list list-group">
 			{props.items.map(item => (
 				<li className="list-group-item" key={item.id}>{item.id}. {item.text}</li>
 			))}
 		</ul>
+	)
+}
+
+function Buttons(props) {
+	return (
+		<div>
+			<button className="btn btn-block btn-secondary text-white disabled" onClick={props.removeLast} >Remove last</button>
+			<button className="btn btn-block btn-danger text-white" onClick={props.removeAll} >Remove all</button>
+		</div>
 	)
 }
 
@@ -47,8 +56,8 @@ class App extends Component {
 
 		this.removeAll = this.removeAll.bind(this);
 		this.removeLast = this.removeLast.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.changeTask = this.changeTask.bind(this);
+		this.addTask = this.addTask.bind(this);
 	}
 
 	render() {
@@ -57,14 +66,14 @@ class App extends Component {
 				
 				<Header />
 			
-				<ItemList items={this.state.items} />					
-			
-				<form onSubmit={this.handleSubmit}>
+				<ItemList items={this.state.items} />
+
+				<form onSubmit={this.addTask}>
 					<div class="input-group mb-3">
 						<input 
 							type="text" 
 							className="form-control" 
-							onChange={this.handleChange} 
+							onChange={this.changeTask} 
 							value={this.state.task}
 						/>
 						<div class="input-group-append">
@@ -77,8 +86,7 @@ class App extends Component {
 					</div>
 				</form>
 
-				<a className="btn btn-block btn-secondary text-white disabled" onClick={this.removeLast} >Remove last</a>
-				<a className="btn btn-block btn-danger text-white" onClick={this.removeAll} >Remove all</a>
+				<Buttons removeLast={this.removeLast} removeAll={this.removeAll} />
 
 				<Footer />
 
@@ -89,17 +97,18 @@ class App extends Component {
 	// Functions
 	removeAll(e) {
 		this.setState({ items: [] });
+		alert('All tasks were deleted.');
 	}
 
 	removeLast(e) {
 		this.setState({ });
 	}
 
-	handleChange(e) {
+	changeTask(e) {
 		this.setState({ task: e.target.value });
 	}
 
-	handleSubmit(e) {
+	addTask(e) {
 		e.preventDefault();
 		if (!this.state.task.length) {
 			return;
