@@ -8,7 +8,7 @@ import './App.css';
 function Header() {
 	return (
 		<header>
-			<h1 >Tasks List - ReactJS</h1>
+			<h1 >To-Do List - ReactJS</h1>
 		</header>
 	)
 }
@@ -45,6 +45,8 @@ class App extends Component {
 		
 		this.state = { items: [], task: 'Do homework'}
 
+		this.removeAll = this.removeAll.bind(this);
+		this.removeLast = this.removeLast.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -75,6 +77,9 @@ class App extends Component {
 					</div>
 				</form>
 
+				<a className="btn btn-block btn-secondary text-white disabled" onClick={this.removeLast} >Remove last</a>
+				<a className="btn btn-block btn-danger text-white" onClick={this.removeAll} >Remove all</a>
+
 				<Footer />
 
 			</div>
@@ -82,6 +87,14 @@ class App extends Component {
 	}
 
 	// Functions
+	removeAll(e) {
+		this.setState({ items: [] });
+	}
+
+	removeLast(e) {
+		this.setState({ });
+	}
+
 	handleChange(e) {
 		this.setState({ task: e.target.value });
 	}
