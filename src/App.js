@@ -37,9 +37,13 @@ function ItemList(props) {
 
 function Buttons(props) {
 	return (
-		<div>
+		<div className="row">
+			<div className="col-12 col-md-6 button-actions">
 			<button className="btn btn-block btn-secondary text-white disabled" onClick={props.removeLast} >Remove last</button>
+			</div>
+			<div className="col-12 col-md-6 button-actions">
 			<button className="btn btn-block btn-danger text-white" onClick={props.removeAll} >Remove all</button>
+			</div>
 		</div>
 	)
 }
