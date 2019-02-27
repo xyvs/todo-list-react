@@ -73,16 +73,16 @@ class App extends Component {
 				<ItemList items={this.state.items} />
 
 				<form onSubmit={this.addTask}>
-					<div class="input-group mb-3">
+					<div className="input-group mb-3">
 						<input 
 							type="text" 
 							className="form-control" 
 							onChange={this.changeTask} 
 							value={this.state.task}
 						/>
-						<div class="input-group-append">
+						<div className="input-group-append">
 							<button
-								class="btn btn-sm btn-dark"
+								className="btn btn-sm btn-dark"
 								type="submit">
 									Add task #{this.state.items.length + 1}
 							</button>
